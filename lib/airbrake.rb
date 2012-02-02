@@ -131,9 +131,10 @@ module Airbrake
     private
 
     def send_notice(notice)
-      if configuration.public?
-        sender.send_to_airbrake(notice.to_xml)
-      end
+      logger.error(notice.to_xml)
+      #if configuration.public?
+      #  sender.send_to_airbrake(notice.to_xml)
+      #end
     end
 
     def build_notice_for(exception, opts = {})
